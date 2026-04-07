@@ -55,7 +55,7 @@ for _, v := range vals {
 // 30
 ```
 
-If only the index is needed, assign the value to `_` or omit it completely:
+If only the index is needed, omit it completely:
 
 ```go
 vals := []int{10, 20, 30}
