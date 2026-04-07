@@ -1,4 +1,4 @@
-# About
+# Introduction
 
 In Go, `range` iterates over slices, arrays, maps, strings, and channels.
 Each iteration yields two values: the index (or key) and a copy of the element at that position.
@@ -80,7 +80,8 @@ for range vals {
 
 ## Range over an Integer
 
-Since Go 1.22, `range` can iterate over an integer directly, yielding values from `0` up to but not including that integer:
+Since Go 1.22, `range` can iterate over an integer directly, yielding values from `0` up to but not including that integer.
+Zero and negative values are valid but produce no iterations.
 
 ```go
 for n := range 3 {
