@@ -1,7 +1,7 @@
 # About
 
-In Go, `range` iterates over slices, arrays, maps, strings, and channels.
-Each iteration yields two values: the index (or key) and a copy of the element at that position.
+In Go, `range` iterates over slices, arrays, maps, and strings.
+Depending on what is being ranged over, each iteration yields one or two values.
 
 ## Iterating over a Slice
 
@@ -90,4 +90,29 @@ for n := range 3 {
 // 0
 // 1
 // 2
+```
+
+## Range over an Iterator
+
+Since Go 1.23, `range` accepts an iterator of type `iter.Seq[V]` or `iter.Seq2[K, V]`.
+An iterator is a function that produces a sequence of values one at a time.
+`range` can then step through those values.
+
+```go
+text := "The quick brown fox"
+for word := range strings.FieldsSeq(text) {
+    fmt.Println(word)
+}
+// The
+// quick
+// brown
+// fox
+
+names := []string{"Alice", "Bob", "Vera"}
+for i, v := range slices.All(names) {
+    fmt.Println(i, ":", v)
+}
+// 0 : Alice
+// 1 : Bob
+// 2 : Vera
 ```
