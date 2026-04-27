@@ -1,46 +1,45 @@
 # Introduction
 
-Go is a statically-typed language, which means that everything has a type at compile-time.
-Assigning a value to a name is referred to as defining a variable.
-A variable can be defined either by explicitly specifying its type, or by assigning a value to have the Go compiler infer its type based on the assigned value.
+Go is statically typed, so every variable will have a type known at compile time.
+Once declared, a variable's type cannot change.
+
+The `var` statement declares a variable and typically its type:
 
 ```go
-var explicit int // Explicitly typed
-implicit := 10   // Implicitly typed
+var count int
 ```
 
-The value of a variable can be assigned using the `:=` and updated using the `=`.
-Once defined, a variable's type can never change.
+Go can infer a type from a provided initial value:
 
 ```go
-count := 1 // Assign initial value
-count = 2  // Update to new value
-
-// Compiler error when assigning different type
-// count = false
+var count = 1 // count is int
 ```
 
-A function can have zero or more parameters.
-All parameters must be explicitly typed, there is no type inference for parameters.
-A function can also have multiple return values which must also be explicitly typed.
-Values are returned from functions using the `return` keyword.
-To allow a function to be called by code in other packages, the name of the function must start with a capital letter.
+Inside a function, the `:=` short assignment statement accomplishes this in a concise format:
 
 ```go
-package greeting
-
-// Hello is a public function.
-func Hello(name string) string {
-    return hello(name)
-}
-
-// hello is a private function.
-func hello(name string) string {
-    return "Hello " + name
-}
+count := 1
 ```
 
-Invoking a function is done by specifying the function name and passing arguments for each of the function's parameters.
+The `=` assignment operator can set a new value for an existing variable:
 
-Go supports two types of comments.
-Single line comments are preceded by `//` and multiline comments are inserted between `/*` and `*/`.
+```go
+count := 1
+count = 2
+```
+
+The new value must have the same type as the variable:
+
+```go
+count := 1
+count = false // compile error: a Boolean is not an int
+```
+
+A variable in Go always has a value.
+If no initial value is set at declaration, Go provides one, a zero value, based on the variable type.
+
+```go
+var count int      // 0
+var name string   // ""
+var ready bool    // false
+```
