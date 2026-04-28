@@ -3,7 +3,7 @@
 Go is statically typed, so every variable will have a type known at compile time.
 Once declared, a variable's type cannot change.
 
-The `var` statement declares a variable and typically its type:
+The `var` statement typically declares both a variable and its type:
 
 ```go
 var count int
