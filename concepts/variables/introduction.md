@@ -1,5 +1,4 @@
 # Introduction
- Introduction
 
 Go is statically typed, so every variable will have a type known at compile time.
 Once declared, a variable's type cannot change.
