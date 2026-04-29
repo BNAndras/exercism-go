@@ -36,10 +36,12 @@ count = false // compile error: a Boolean is not an int
 ```
 
 A variable in Go always has a value.
-If no initial value is set at declaration, Go provides one, a zero value, based on the variable type.
+If one isn't set at declaration, Go provides one, [called a zero value][zero-values], based on the variable's type.
 
 ```go
 var count int      // 0
 var name string   // ""
 var ready bool    // false
 ```
+
+[zero-values]: https://exercism.org/tracks/go/concepts/zero-values
